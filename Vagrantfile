@@ -7,8 +7,8 @@ VAGRANTFILE_API_VERSION = "2"
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
 
 if ! File.exists?('./SQLEXPRWT_x64_ENU.exe')
-  puts 'SQL Server installer could not be found!'
-  puts "Please run:\n  wget http://download.microsoft.com/download/0/4/B/04BE03CD-EAF3-4797-9D8D-2E08E316C998/SQLEXPRWT_x64_ENU.exe"
+  puts 'SQL Server 2012 Express installer could not be found!'
+  puts "Please run:\n wget http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLEXPRWT_x64_ENU.exe"
   exit 1
 end
 
