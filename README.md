@@ -1,11 +1,11 @@
 # vagrant-mssql-express
 
-A Windows Server 2008 R2 VM with SQL Server Express 2008 R2 SP2 powered by Vagrant.
+A Windows Server 2012 R2 VM with SQL Server 2012 Express edition powered by Vagrant.
 
 ## Requirements
 
-* Vagrant 1.6+ (tested on 1.6.3)
-* VirtualBox 4.3+ (tested on 4.3.16 on an Ubuntu host)
+* Vagrant 1.6+ (tested on 1.7.2)
+* VirtualBox 4.3+ (tested on 4.3.26 on a Mac OS X host with Yosemite)
 * Around `12GB` of disk space (`3GB` for base box + `~9GB` for the VM)
 
 ## Base box information
@@ -18,25 +18,25 @@ A Windows Server 2008 R2 VM with SQL Server Express 2008 R2 SP2 powered by Vagra
 * The box has been created with [packer.io](http://www.packer.io/) using the
   templates made available [here](https://github.com/opentable/packer-images).
 
-More information can be found on the [box page at Vagrant Cloud](https://vagrantcloud.com/opentable/boxes/win-2008r2-standard-amd64-nocm).
+More information can be found on the [box page at Vagrant Cloud](https://vagrantcloud.com/opentable/boxes/win-2012r2-standard-amd64-nocm).
 
 ## Usage
 
 ```sh
-git clone https://github.com/fgrehm/vagrant-mssql-express.git
+git clone git@github.com:gistia/vagrant-mssql-express.git
 cd vagrant-mssql-express
 # Download SQL Server with Tools installer
-wget http://download.microsoft.com/download/0/4/B/04BE03CD-EAF3-4797-9D8D-2E08E316C998/SQLEXPRWT_x64_ENU.exe
+wget http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLEXPRWT_x64_ENU.exe
 vagrant up
 # Get a coffee as it will take a while for it to finish provisioning
 ```
 
-Then test the connection with the SQL Server using `telnet 192.168.50.4 1433`
+Then test the connection with the SQL Server using `telnet 10.0.0.101 1433`
 
 
 ### Connecting to the SQL Server instance that runs inside the VM
 
-* IP / Host: `192.168.50.4`
+* IP / Host: `10.0.0.101`
 * Username: `sa`
 * Password: `#SAPassword!`
 
@@ -49,7 +49,7 @@ this is what you'll have on your `database.yml`:
 development:
   adapter: sqlserver
   database: <YOUR DB>
-  host: 192.168.50.4
+  host: 10.0.0.101
   username: sa
   password: '#SAPassword!'
 ```
